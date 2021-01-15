@@ -24,6 +24,7 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
   getDetails(id) {

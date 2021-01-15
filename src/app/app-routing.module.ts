@@ -7,9 +7,7 @@ import { PokeComponentComponent } from '../app/components/poke-component/poke-co
 
 const routes: Routes = [
   {path: 'home', component: PokeComponentComponent},
-  {path: 'pokemonDetails/:id', component: PokemonDetailsComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'home' },
-  {path: '**', pathMatch: 'full', redirectTo: 'home'},
+  {path: 'pokemonDetails/:id', component: PokemonDetailsComponent}
 ];
 
 @NgModule({
