@@ -3,22 +3,30 @@
     <p (click)="getPokeID(item)">{{item.name}}</p>
 </div> -->
 
-<div class="col-12">
+<div class="col-xl-12" id="containerFilterPokemon">
     <p>Filtra y busca el nombre de tu pokemon</p>
-    <input type="text" name="FilterPokemon" id="FilterPokemon" [(ngModel)]="filterPokemon" placeholder="Filtrado pokemon nombre">
-    <input type="text" name="FilterPokemonType" id="FilterPokemonType" [(ngModel)]="filterPokemonType" placeholder="Filtrado pokemon tipo">
-    <select name="miselect" [(ngModel)]="filterPokemonType">
-        <option [value]="list" *ngFor="let list of listTypes">{{list}}</option>
-    </select>
+    <div id="setFilter">
+        <input type="text" name="FilterPokemon" id="FilterPokemon" [(ngModel)]="filterPokemon" placeholder="Filtrado pokemon nombre">
+        <input type="text" name="FilterPokemonType" id="FilterPokemonType" [(ngModel)]="filterPokemonType" placeholder="Filtrado pokemon tipo">
+        <select name="miselect" [(ngModel)]="filterPokemonType">
+            <option [value]="list" *ngFor="let list of listTypes">{{list}}</option>
+        </select>
+    </div>
 </div>
 
+<div class="col-xl-12">
+    <h3>Listado Pokémon</h3>
+    <hr>
+</div>
 
-<table *ngFor="let item of resultPokemonArray | searchPoke: filterPokemon | searchPokeType: filterPokemonType">
+<table class="table table-bordered table-hover" *ngFor="let item of resultPokemonArray | searchPoke: filterPokemon | searchPokeType: filterPokemonType">
     <thead>
-        <th>Nombre</th>
-        <th>Imagen</th>
-        <th>Nº Pokedex</th>
-        <th>Tipo</th>
+      <tr>
+        <th width="10" scope="col">Nombre</th>
+        <th width="10" scope="col">Imagen</th>
+        <th width="10" scope="col">Nº Pokedex</th>
+        <th width="10" scope="col">Tipo</th>
+      </tr>
     </thead>
     <tbody>
         <tr (click)="getPokeID(item)" >
@@ -28,4 +36,4 @@
             <td>{{item.type}}</td>
         </tr>
     </tbody>
-</table>
+  </table>

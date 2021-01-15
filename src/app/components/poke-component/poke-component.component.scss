@@ -1,0 +1,44 @@
+div {
+  padding: 0
+}
+
+#containerFilterPokemon {
+  padding: 0;
+  margin: 20px 0;
+
+  input {
+    margin-right: 58px;
+  }
+
+  select {
+    width: 130px;
+
+    option {
+      font-style: italic;
+    }
+  }
+}
+
+input {
+  width: 25%;
+  height: 35px;
+}
+
+table {
+    td {
+        width: 10px; 
+        text-align: center;
+        vertical-align: inherit;
+    }
+
+    th {
+        width: 10px; 
+        text-align: center;
+        vertical-align: inherit;
+    }
+
+    img {
+        padding: 0;
+        height: 70px;
+    }
+}
