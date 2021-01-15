@@ -1,4 +1,25 @@
-<div class="col-3" class="d-flex" *ngFor="let item of resultPokemonArray">
-    <img src="{{item.image}}" alt="">
-    <p>{{item.name}}</p>
+<!-- <div class="col-12" class="d-flex" *ngFor="let item of resultPokemonArray">
+    <img src="{{item.image}}" alt="" (click)="getPokeID(item)">
+    <p (click)="getPokeID(item)">{{item.name}}</p>
+</div> -->
+
+<div class="col-12">
+    <p>Filtra y busca el nombre de tu pokemon</p>
+    <input type="text" name="FilterPokemon" id="FilterPokemon" placeholder="Filtrado pokemon nombre" (keyup)="getFilterPokemon($event)">
 </div>
+
+
+<table *ngFor="let item of resultPokemonArray">
+    <thead>
+        <th>Nombre</th>
+        <th>Imagen</th>
+        <th>Nº Pokedex</th>
+    </thead>
+    <tbody>
+        <tr (click)="getPokeID(item)" >
+            <td>{{item.name}}</td>
+            <td><img src="{{item.image}}" alt=""></td>
+            <td>{{item.position}}</td>
+        </tr>
+    </tbody>
+</table>
