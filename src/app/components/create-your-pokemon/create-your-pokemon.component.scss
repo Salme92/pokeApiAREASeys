@@ -6,4 +6,15 @@ input {
 #createSetPokemon {
     display: flex;
     justify-content: space-between;
+    padding: 0;
+}
+
+#containerSetNewPokemon {
+    padding: 0;
+    #setFilter{
+        margin: 40px 0;
+        input {
+            margin-right: 56px;
+        }
+    }
 }

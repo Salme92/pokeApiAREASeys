@@ -7,9 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateYourPokemonComponent implements OnInit {
 
+  newPokemons = [];
+  PokeType: string;
+  PokeSize: number;
+  PokeName: string;
+  filterPokemon: string;
+  filterPokemonType: string;
+  foundPokemon: boolean
+
   constructor() { }
 
   ngOnInit(): void {
+    this.foundPokemon = false;
+  }
+
+  createPokemon() {
+   
+    let name = this.PokeName;
+    let size = this.PokeSize;
+    let type = this.PokeType;    
+
+    let setPokemon = {
+      name: name,
+      size: size,
+      type: type
+    }
+
+    this.newPokemons.push(setPokemon); 
+    
+    this.foundPokemon = true;
+
   }
 
 }
