@@ -7,18 +7,24 @@ import { PokeComponentComponent } from './components/poke-component/poke-compone
 import { HttpClientModule } from '@angular/common/http';
 import { CreateYourPokemonComponent } from './components/create-your-pokemon/create-your-pokemon.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
+import { SearchPipe } from './pipes/search-poke.pipe';
+import { FormsModule } from '@angular/forms';
+import { SearchPokeTypePipe } from './pipes/search-poke-type.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokeComponentComponent,
     CreateYourPokemonComponent,
-    PokemonDetailsComponent
+    PokemonDetailsComponent,
+    SearchPipe,
+    SearchPokeTypePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

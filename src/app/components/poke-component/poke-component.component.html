@@ -5,21 +5,27 @@
 
 <div class="col-12">
     <p>Filtra y busca el nombre de tu pokemon</p>
-    <input type="text" name="FilterPokemon" id="FilterPokemon" placeholder="Filtrado pokemon nombre" (keyup)="getFilterPokemon($event)">
+    <input type="text" name="FilterPokemon" id="FilterPokemon" [(ngModel)]="filterPokemon" placeholder="Filtrado pokemon nombre">
+    <input type="text" name="FilterPokemonType" id="FilterPokemonType" [(ngModel)]="filterPokemonType" placeholder="Filtrado pokemon tipo">
+    <select name="miselect" [(ngModel)]="filterPokemonType">
+        <option [value]="list" *ngFor="let list of listTypes">{{list}}</option>
+    </select>
 </div>
 
 
-<table *ngFor="let item of resultPokemonArray">
+<table *ngFor="let item of resultPokemonArray | searchPoke: filterPokemon | searchPokeType: filterPokemonType">
     <thead>
         <th>Nombre</th>
         <th>Imagen</th>
         <th>Nº Pokedex</th>
+        <th>Tipo</th>
     </thead>
     <tbody>
         <tr (click)="getPokeID(item)" >
             <td>{{item.name}}</td>
             <td><img src="{{item.image}}" alt=""></td>
             <td>{{item.position}}</td>
+            <td>{{item.type}}</td>
         </tr>
     </tbody>
 </table>

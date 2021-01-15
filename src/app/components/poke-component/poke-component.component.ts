@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class PokeComponentComponent implements OnInit {
   resultPokemonArray: Array<any>;
+  search: string;
+  filterPokemon: string;
+  filterPokemonType: string;
+  listTypes: Array<string>;
 
   constructor(private PokemonService: PokemonService,private router: Router) { }
 
@@ -19,6 +23,7 @@ export class PokeComponentComponent implements OnInit {
 
   getPokeAREASeys(){
     this.resultPokemonArray = [];
+    this.listTypes = [];
     
     for (let i = 1; i <= 150; i++) {
       this.PokemonService.getPokeData(i).subscribe(
@@ -26,11 +31,19 @@ export class PokeComponentComponent implements OnInit {
           const resultPokemon = {
             position: i,
             image: res.sprites.front_default,
-            name: res.name
-          };
-          
-          this.resultPokemonArray.push(resultPokemon)   
-              
+            name: res.name,
+            type: res.types[0].type.name
+          };          
+                    
+          this.listTypes.push(resultPokemon.type);
+
+          this.listTypes.filter((item,index)=>{
+            return this.listTypes.indexOf(item) === index;
+          })
+
+
+          this.resultPokemonArray.push(resultPokemon);
+
         },
         err => {
           console.log(err);
@@ -44,8 +57,10 @@ export class PokeComponentComponent implements OnInit {
       this.router.navigateByUrl(`/pokemonDetails/${row.position}`)
    }
 
-   getFilterPokemon(name){
-      console.log(name.target.value);
-   }
+   getFilterPokemon(search: string): void {
+    if (this.search !== search) {
+      this.search = search;
+    }
+  }
 
 }
