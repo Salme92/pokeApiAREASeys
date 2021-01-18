@@ -13,12 +13,14 @@ export class CreateYourPokemonComponent implements OnInit {
   PokeName: string;
   filterPokemon: string;
   filterPokemonType: string;
-  foundPokemon: boolean
+  foundPokemon: boolean;
+  noDetails: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
     this.foundPokemon = false;
+    this.noDetails = true;
   }
 
   createPokemon() {

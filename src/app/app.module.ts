@@ -10,6 +10,8 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
 import { SearchPipe } from './pipes/search-poke.pipe';
 import { FormsModule } from '@angular/forms';
 import { SearchPokeTypePipe } from './pipes/search-poke-type.pipe';
+import { RouterModule, Routes } from '@angular/router';
+import { PokeHeaderComponent } from './components/poke-header/poke-header.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { SearchPokeTypePipe } from './pipes/search-poke-type.pipe';
     CreateYourPokemonComponent,
     PokemonDetailsComponent,
     SearchPipe,
-    SearchPokeTypePipe
+    SearchPokeTypePipe,
+    PokeHeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

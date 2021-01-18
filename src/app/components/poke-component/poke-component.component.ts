@@ -14,10 +14,12 @@ export class PokeComponentComponent implements OnInit {
   filterPokemon: string;
   filterPokemonType: string;
   listTypes: Array<string>;
+  noDetails: boolean;
 
   constructor(private PokemonService: PokemonService,private router: Router) { }
 
   ngOnInit(): void {
+    this.noDetails = true;
     this.getPokeAREASeys();    
   }
 
@@ -54,7 +56,8 @@ export class PokeComponentComponent implements OnInit {
 
    //Obtenemos el Pokemon identificativo
     getPokeID(row){
-      this.router.navigateByUrl(`/pokemonDetails/${row.position}`)
+      this.router.navigateByUrl(`/pokemonDetails/${row.position}`);
+      this.noDetails = false;
    }
 
    getFilterPokemon(search: string): void {

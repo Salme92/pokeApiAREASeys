@@ -1,8 +1,4 @@
-<!-- <div class="col-12" class="d-flex" *ngFor="let item of resultPokemonArray">
-    <img src="{{item.image}}" alt="" (click)="getPokeID(item)">
-    <p (click)="getPokeID(item)">{{item.name}}</p>
-</div> -->
-
+<div *ngIf="noDetails">
 <div class="col-xl-12" id="containerFilterPokemon">
     <p>Filtra y busca el nombre en la Pokedex, también puedes filtrar por su tipo</p>
     <div id="setFilter">
@@ -29,11 +25,12 @@
       </tr>
     </thead>
     <tbody>
-        <tr (click)="getPokeID(item)" >
+        <tr (click)="getPokeID(item)">
             <td>{{item.name}}</td>
             <td><img src="{{item.image}}" alt=""></td>
             <td>{{item.position}}</td>
             <td>{{item.type}}</td>
         </tr>
     </tbody>
-  </table>
+</table>
+</div>

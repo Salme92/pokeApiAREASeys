@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { from } from 'rxjs';
 import { PokemonDetailsComponent } from '../app/components/pokemon-details/pokemon-details.component';
-import { PokeComponentComponent } from '../app/components/poke-component/poke-component.component'
+import { AppComponent } from '../app/app.component'
 
 
 const routes: Routes = [
-  {path: 'home', component: PokeComponentComponent},
+  {path: 'home', component: AppComponent},
   {path: 'pokemonDetails/:id', component: PokemonDetailsComponent}
 ];
 

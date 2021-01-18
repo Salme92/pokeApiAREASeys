@@ -1,32 +1,35 @@
-<div class="col-12" id="createSetPokemon">
-    <input type="text" name="PokeName" id="PokeName" placeholder="Introduce tu PokeNombre" [(ngModel)]="PokeName">
-    <input type="text" name="PokeSize" id="PokeSize" placeholder="Introduce tu PokePeso" [(ngModel)]="PokeSize">
-    <input type="text" name="PokeType" id="PokeType" placeholder="Introduce tu PokeTipo" [(ngModel)]="PokeType">
-    <button (click)="createPokemon()">¡Te elijo a ti!</button>
-</div>
-
-<div class="col-12" id="containerSetNewPokemon">
-
-    <div id="setFilter" *ngIf="foundPokemon">
-        <p><i>¡Busca tu nuevo Pokemon!</i></p>
-        <input type="text" name="FilterPokemon" id="FilterPokemon" [(ngModel)]="filterPokemon" placeholder="Filtrado pokemon nombre">
-        <input type="text" name="FilterPokemonType" id="FilterPokemonType" [(ngModel)]="filterPokemonType" placeholder="Filtrado pokemon tipo">
-    </div>
-
-    <table class="table table-bordered table-hover" *ngFor="let new of newPokemons| searchPoke: filterPokemon | searchPokeType: filterPokemonType">
-        <thead>
-          <tr>
-            <th width="10" scope="col">Nombre</th>
-            <th width="10" scope="col">Peso</th>
-            <th width="10" scope="col">Tipo</th>
-          </tr>
-        </thead>
-        <tbody>
+<div *ngIf="noDetails">
+  <div class="col-xl-12" id="createSetPokemon">
+      <input type="text" name="PokeName" id="PokeName" placeholder="Introduce tu PokeNombre" [(ngModel)]="PokeName">
+      <input type="text" name="PokeSize" id="PokeSize" placeholder="Introduce tu PokePeso" [(ngModel)]="PokeSize">
+      <input type="text" name="PokeType" id="PokeType" placeholder="Introduce tu PokeTipo" [(ngModel)]="PokeType">
+      <button (click)="createPokemon()">¡Te elijo a ti!</button>
+  </div>
+  
+  <div class="col-xl-12" id="containerSetNewPokemon">
+  
+      <div id="setFilter" *ngIf="foundPokemon">
+          <p><i>¡Busca tu nuevo Pokemon!</i></p>
+          <input type="text" name="FilterPokemon" id="FilterPokemon" [(ngModel)]="filterPokemon" placeholder="Filtrado pokemon nombre">
+          <input type="text" name="FilterPokemonType" id="FilterPokemonType" [(ngModel)]="filterPokemonType" placeholder="Filtrado pokemon tipo">
+      </div>
+  
+      <table class="table table-bordered table-hover" *ngFor="let new of newPokemons| searchPoke: filterPokemon | searchPokeType: filterPokemonType">
+          <thead>
             <tr>
-                <td>{{new.name}}</td>
-                <td>{{new.size}}</td>
-                <td>{{new.type}}</td>
+              <th width="10" scope="col">Nombre</th>
+              <th width="10" scope="col">Peso</th>
+              <th width="10" scope="col">Tipo</th>
             </tr>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>{{new.name}}</td>
+                  <td>{{new.size}}</td>
+                  <td>{{new.type}}</td>
+              </tr>
+          </tbody>
+        </table>
+  </div>
 </div>
+
